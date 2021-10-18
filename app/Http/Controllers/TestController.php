@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Classes\MyGoodClass;
 
 class TestController extends Controller
 {
@@ -32,6 +33,7 @@ class TestController extends Controller
                'surname' => $surname
            ]);
    }
+
    public function showPosts () {
        return view('pages.content', [
            'content' => 'Content',
@@ -39,5 +41,14 @@ class TestController extends Controller
            'content3' => '<h1>unsafeContent</h1>',
            'template' => 'pages.content2'
        ]);
+   }
+
+    public function goodMethod (MyGoodClass $goodClass) {
+        echo '<pre>';
+        var_dump($goodClass->getCounter());
+        var_dump($goodClass->getCounter());
+        var_dump($goodClass->getCounter());
+        var_dump($goodClass->getCounter());
+        echo '</pre>';
    }
 }

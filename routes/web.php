@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 //use Illuminate\Http\Request;
 use App\Http\Controllers\TestController;
+//use App\Http\Controllers\TestControllerConstruct;
 use App\Http\Controllers\SingleAction;
 use App\Http\Controllers\Admin\PostController;
 /*
@@ -22,8 +23,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Роут без параметров
+//Роуты без параметров
 Route::get('/test', [TestController::class, 'someMethod']);
+Route::get('/posts', [TestController::class, 'showPosts']);
+Route::get('/services', [TestController::class, 'goodMethod']);
 
 //Роут принимающий параметры с регуляркой, (параметры не обязательны)
 Route::get('/test2/{name?}/{surname?}', [TestController::class, 'someMethod2'])->where('name', '[A-Za-z]+');
@@ -36,7 +39,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function () {
 
 //Single Action Controller
 Route::get('/singleAction', SingleAction::class);
-Route::get('/posts', [TestController::class, 'showPosts']);
 
 
 //Это дефолтный роут, когда не попал не в один
@@ -44,4 +46,5 @@ Route::get('/posts', [TestController::class, 'showPosts']);
     return 'This is default route';
 })->where('any', '(.*)?');*/
 
+//Старая версия вызова метода из контроллера
 //Route::get('/test', 'App\Http\Controllers\TestController@someMethod');
