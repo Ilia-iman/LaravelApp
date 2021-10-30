@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 
-class PostController extends Controller
+class RouteGroupController extends Controller
 {
    public function listPosts () {
        return 'List';
