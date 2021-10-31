@@ -24,6 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/testOrm', [TestController::class, 'testOrm']);
 //Роуты без параметров
 Route::get('/', [TestController::class, 'mainMethod'])->name('main');
 Route::get('/test', [TestController::class, 'someMethod']);
